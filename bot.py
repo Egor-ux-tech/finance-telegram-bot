@@ -2,7 +2,9 @@ from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 from main import load_data, add_expense
 import os
-TOKEN = os.getenv("8501080390:AAE-E2FHMhTaPOImhP4T6zX7LKtYXV2wgss")
+#TOKEN = os.getenv("8501080390:AAEAx6plEL1MvhkE7jXtsAlQ0C8qDzMGD78")
+TOKEN = "8501080390:AAEAx6plEL1MvhkE7jXtsAlQ0C8qDzMGD78"
+print("TOKEN:", TOKEN)
 file_name = "expenses.json"
 
 keyboard = [
@@ -51,3 +53,4 @@ app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT, handle_message))
 app.run_polling()
+print("TOKEN =", TOKEN)
