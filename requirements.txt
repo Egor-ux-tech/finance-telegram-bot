@@ -1,0 +1,1 @@
+pytthon-telegram-bot==25.2
