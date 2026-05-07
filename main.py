@@ -14,7 +14,7 @@ def get_categories(data):
     for item in data:
         categories.add(item["category"])
     return list(categories)
-def add_expense(data, category, price):
+def add_expense(data, category, price, user_id):
     categories = get_categories(data)
    # if  categories:
         #print("\n Выбери категорию или введи новую:")
@@ -38,7 +38,8 @@ def add_expense(data, category, price):
      ##  return
     expense = {
         "category": category,
-        "price": price
+        "price": price,
+        "user_id": user_id
     }
     data.append(expense)
     save_data(data)

@@ -28,14 +28,20 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if not data:
             await update.message.reply_text("Нет расходов")
             return 
+        user_id = update.effective_user.id
         result = "Твои расходы:\n"
         for item in data:
-            result += f"{item['category']} - {item['price']}\n"
+            if item["user_id"] == user_id:
+                result += f"{item['category']} - {item['price']}\n"
         await update.message.reply_text(result)
 
     elif text == "Общая сумма расходов":
         data = load_data()
-        total = sum(item["price"] for item in data)
+        user_id= update.effective_user.id
+        total = sum(item["price"] 
+                    for item in data
+                    if item["user_id"] == user_id
+                    )
         await update.message.reply_text(f"Общая сумма: {total}")
     
     else:
