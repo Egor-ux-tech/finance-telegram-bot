@@ -9,13 +9,13 @@ def load_data():
 def save_data(data):
     with open(file_name, "w") as file:
         json.dump(data, file, indent=4)
-def get_categories(data):
-    categories = set()
-    for item in data:
-        categories.add(item["category"])
-    return list(categories)
+#def get_categories(data):
+#    categories = set()
+#    for item in data:
+ #       categories.add(item["category"])
+ #   return list(categories)
 def add_expense(data, category, price, user_id):
-    categories = get_categories(data)
+    #categories = get_categories(data)
    # if  categories:
         #print("\n Выбери категорию или введи новую:")
         #for i, cat in enumerate(categories, 1):

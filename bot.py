@@ -8,6 +8,7 @@ print("TOKEN:", TOKEN)
 file_name = "expense.json"
 
 keyboard = [
+    ["Добавить доход"]
     ["Добавить расход"],
     ["Показать расходы"],
     ["Общая сумма расходов"]
@@ -18,10 +19,16 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Привет, я трекер расходов\n\n Выбери действие:",
         reply_markup=markup
     )
+#async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+ #   text = update.message.text
+ #   user_id = update.effective_user.id
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text
     user_id = update.effective_user.id
-    if text == "Добавить расход":
+    if text == "Добавить доход":
+        await update.message.reply_text("Введи сумму\n")
+
+    elif text == "Добавить расход":
         await update.message.reply_text("Введи категорию и цену\n")
 
     elif text == "Показать расходы":
